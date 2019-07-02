@@ -66,7 +66,7 @@ public:
 //*
 #pragma GCC diagnostic ignored "-Wunused-function"
 static//*/
-void test(){ // @suppress("Unused static function")
+int test(){ // @suppress("Unused static function")
 	Solution s;
 	TreeNode tree[5];
 	tree[0].val=3;tree[0].left=&tree[1];tree[0].right=&tree[2];
@@ -83,4 +83,5 @@ void test(){ // @suppress("Unused static function")
 	assert(ntree->right->left->val==tree->right->left->val);
 	assert(ntree->right->right->val==tree->right->right->val);
 	cout<<"serialize-and-deserialize-binary-tree passed.\n";
+	return 0;
 }

@@ -47,12 +47,13 @@ public:
     }
 };
 
-/*
+//*
 #pragma GCC diagnostic ignored "-Wunused-function"
 static//*/
-void test(){ // @suppress("Unused static function")
+int test(){ // @suppress("Unused static function")
 	Solution s;
 	assert(s.findMedianSortedArrays({1,2,3,4,5,6},{2,3,4,5})==3.5);
 	assert(s.findMedianSortedArrays({1,2,3},{4,5})==3);
 	cout<<"median-of-two-sorted-arrays passed.\n";
+	return 0;
 }

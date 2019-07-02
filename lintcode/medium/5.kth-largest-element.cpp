@@ -43,12 +43,13 @@ public:
 //*
 #pragma GCC diagnostic ignored "-Wunused-function"
 static//*/
-void test(){ // @suppress("Unused static function")
+int test(){ // @suppress("Unused static function")
 	Solution s;
 	assert (s.kthLargestElement(10,{1,2,3,4,5,6,8,9,10,7})==1);
 	assert (s.kthLargestElement(3,{9,3,2,4,8})==4);
 	assert (s.kthLargestElement(1,{1,3,4,2})==4);
 	cout<<"kth-largest-element passed.\n";
+	return 0;
 }
 
 

@@ -47,11 +47,15 @@ public:
     	for(auto i=l.begin();++i!=l.end();prev=&(*prev)->next)
     		*prev=new ListNode(*i);
     }
-    void del(){
-    	if(next){
-    		next->del();
-    		delete next;
+    bool del(){
+    	if(val==INT_MIN){
+    		LOGGER("Probably trying to delete pointer already deleted!!!!!"<<endl);
+    		return false;
     	}
+		if(next&&next->del())
+			delete next;
+		val=INT_MIN;
+		return true;
     }
 };
 inline void assertl(ListNode*l1,ListNode*l2){
@@ -101,6 +105,10 @@ void assertv(const vector<T>&v1,const vector<T>&v2){
 	for(auto i1=v1.begin(),i2=v2.begin();i1!=v1.end();++i1,++i2)
 		assert(*i1==*i2);
 }
-
+template<class T>
+void del(vector<T*>v){
+	for(auto i:v)
+		i->del();
+}
 
 #endif /* UTIL_H_ */

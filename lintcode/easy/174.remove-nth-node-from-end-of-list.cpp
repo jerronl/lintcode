@@ -35,13 +35,14 @@ public:
 //*
 #pragma GCC diagnostic ignored "-Wunused-function"
 static//*/
-void test(){ // @suppress("Unused static function")
+int test(){ // @suppress("Unused static function")
 	Solution s;
 	ListNode test{1,2,3,4,5},expected{1,2,4,5};
 	assertl(s.removeNthFromEnd(&test,3),&expected);
 	test.del();
 	expected.del();
 	cout<<"remove-nth-node-from-end-of-list passed.\n";
+	return 0;
 }
 
 

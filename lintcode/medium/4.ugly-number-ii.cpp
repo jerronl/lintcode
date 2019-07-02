@@ -32,10 +32,11 @@ public:
 //*
 #pragma GCC diagnostic ignored "-Wunused-function"
 static//*/
-void test(){ // @suppress("Unused static function")
+int test(){ // @suppress("Unused static function")
 	Solution s;
 	assert (s.nthUglyNumber(100)==1536);
 	cout<<"ugly-number-ii passed.\n";
+	return 0;
 }
 
 

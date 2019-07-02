@@ -37,11 +37,12 @@ public:
 //*
 #pragma GCC diagnostic ignored "-Wunused-function"
 static//*/
-void test(){ // @suppress("Unused static function")
+int test(){ // @suppress("Unused static function")
 	Solution s;
 	assert (abs(s.dicesSum(1)[2].second-1/6.)<.000001);
 	assert (abs(s.dicesSum(14)[30].second-0.046010619)<.0000001);
 	cout<<"dices-sum passed.\n";
+	return 0;
 }
 
 

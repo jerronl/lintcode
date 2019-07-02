@@ -34,13 +34,14 @@ public:
 //*
 #pragma GCC diagnostic ignored "-Wunused-function"
 static//*/
-void test(){ // @suppress("Unused static function")
+int test(){ // @suppress("Unused static function")
 	Solution s;
 	assert (s.maxSubArray({-1,4,-2,3,-2,3},2)==8);
 	assert (s.maxSubArray({5,-3,4,-2,4},3)==13);
 	assert (s.maxSubArray({-68,64,-44,16,-85,6,-58,84,-5,72,-16,100,-88,14,-36,73,-96,42,-72,93,-15,53,-18,67,-71,25,-51,26,-37,16,-33,32,-11,89,},3)==525);
 
 	cout<<"maximum-subarray-iii passed.\n";
+	return 0;
 }
 
 

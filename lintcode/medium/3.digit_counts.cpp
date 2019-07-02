@@ -45,8 +45,9 @@ public:
 //*
 #pragma GCC diagnostic ignored "-Wunused-function"
 static//*/
-void test(){ // @suppress("Unused static function")
+int test(){ // @suppress("Unused static function")
 	Solution s;
 	assert (s.digitCounts(0,1234)==344);
 	cout<<"digit-counts passed.\n";
+	return 0;
 }

@@ -70,7 +70,7 @@ private:
 //*
 #pragma GCC diagnostic ignored "-Wunused-function"
 static//*/
-void test(){ // @suppress("Unused static function")
+int test(){ // @suppress("Unused static function")
 	LFUCache lfu(3);
 	lfu.set(2, 2);
 	lfu.set(1, 1);
@@ -84,4 +84,5 @@ void test(){ // @suppress("Unused static function")
 	assert(lfu.get(1)==1);
 	assert(lfu.get(4)==4);
 	cout<<"lfu-cache passed.\n";
+	return 0;
 }

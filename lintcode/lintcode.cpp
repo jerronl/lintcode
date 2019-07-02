@@ -5,11 +5,7 @@
 // Copyright   :
 // Description : Hello World in C++, Ansi-style
 //============================================================================
-
-#include <iostream>
-using namespace std;
-extern void test();
+extern int test();
 int main() {
-	test();
-	return 0;
+	return test();
 }
