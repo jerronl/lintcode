@@ -20,6 +20,7 @@
 #include <deque>
 #include <algorithm>
 #include <set>
+#include <list>
 #include <queue>
 #include <sstream>
 #include <math.h>
@@ -42,7 +43,7 @@ public:
     ListNode *next;
     ListNode():val(INT_MIN),next(nullptr){}
     explicit ListNode(int val):val(val),next(nullptr) {}
-    explicit ListNode(const initializer_list<int>& l):val(*l.begin()),next(nullptr) {
+    ListNode(const initializer_list<int>& l):val(*l.begin()),next(nullptr) {
     	auto prev=&next;
     	for(auto i=l.begin();++i!=l.end();prev=&(*prev)->next)
     		*prev=new ListNode(*i);
@@ -82,7 +83,41 @@ public:
     TreeNode *left, *right;
     TreeNode() :val(INT_MIN),left(nullptr),right(nullptr){};
     explicit TreeNode(int val) :val(val),left(nullptr),right(nullptr){};
+    TreeNode(const initializer_list<int>& l):val(*l.begin()),left(nullptr),right(nullptr){
+    	list<TreeNode**>Q{&left,&right};
+    	for(auto i=l.begin();++i!=l.end();Q.pop_front())
+    		if(*i>INT_MIN){
+				auto next=Q.front();
+				*next=new TreeNode(*i);
+    			Q.push_back(&(*next)->left);
+    			Q.push_back(&(*next)->right);
+    	}
+    };
+    bool del(){
+    	if(val==INT_MIN){
+    		LOGGER("Probably trying to delete pointer already deleted!!!!!"<<endl);
+    		return false;
+    	}
+		if(left&&left->del())
+			delete left;
+		if(right&&right->del())
+			delete right;
+		val=INT_MIN;
+		return true;
+    }
 };
+inline void assertt(TreeNode*l1,TreeNode*l2){
+	if(l1){
+		assert(l2);
+		assert(l1->val==l2->val);
+		assertt(l1->left,l2->left);
+		assertt(l1->right,l2->right);
+	}
+	else
+		assert(!l2);
+}
+
+
 
 template<class T>
 void enumerate(T&& dfs){
