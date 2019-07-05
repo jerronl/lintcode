@@ -37,6 +37,11 @@ using namespace std;
 #define LOGGER(x)
 #endif
 
+template <typename T, std::size_t N>
+constexpr std::size_t countof(T const (&)[N]) noexcept{
+	return N;
+}
+
 class ListNode {
 public:
     int val;

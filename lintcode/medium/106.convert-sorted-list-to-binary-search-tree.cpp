@@ -38,9 +38,9 @@ static//*/
 int test(){ // @suppress("Unused static function")
 	Solution s;
 	ListNode test[]{{1,2,3},{2,3,6,7}};
-	TreeNode expected[]{{2,1,3},{6,3,7,2,INT_MIN,INT_MIN}},*result[2];
+	TreeNode expected[]{{2,1,3},{6,3,7,2,INT_MIN,INT_MIN}},*result[countof(test)];
 	assertt(s.sortedListToBST(nullptr),nullptr);
-	for(auto i=0;i<2;++i){
+	for(auto i=0u;i<countof(test);++i){
 		result[i]=s.sortedListToBST(&test[i]);
 		assertt(result[i],&expected[i]);
 		test[i].del();
