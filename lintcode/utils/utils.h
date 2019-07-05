@@ -69,6 +69,48 @@ inline void assertl(ListNode*l1,ListNode*l2){
 		assert(!l2);
 }
 
+class RandomListNode{
+public:
+    int label;
+	RandomListNode *next,*random;
+	RandomListNode():label(INT_MIN),next(nullptr),random(nullptr){}
+    explicit RandomListNode(int val):label(val),next(nullptr),random(nullptr) {}
+    RandomListNode(const initializer_list<int>& l1,const initializer_list<int>& l2):label(*l1.begin()),next(nullptr),random(nullptr){
+    	map<int,RandomListNode*> M{{label,this}};
+    	auto head=this;
+    	for(auto i=l1.begin();++i!=l1.end();){
+    		head->next=new RandomListNode(*i);
+    		M[*i]=head=head->next;
+    	}
+    	auto i=l2.begin();
+    	for(head=this;head;head=head->next,++i)
+    		if(M.count(*i))
+    			head->random=M[*i];
+    }
+    bool del(){
+    	if(label==INT_MIN){
+    		LOGGER("Probably trying to delete pointer already deleted!!!!!"<<endl);
+    		return false;
+    	}
+		if(next&&next->del())
+			delete next;
+		label=INT_MIN;
+		return true;
+    }
+};
+inline void assertr(RandomListNode*l1,RandomListNode*l2){
+	if(l1){
+		assert(l2);
+		assert(l1->label==l2->label);
+		if(l1->random)
+			assert(l2->random && l1->random->label==l2->random->label);
+		else
+			assert(!l2->random);
+		assertr(l1->next,l2->next);
+	}
+	else
+		assert(!l2);
+}
 class Interval {
 public:
     int start, end;
