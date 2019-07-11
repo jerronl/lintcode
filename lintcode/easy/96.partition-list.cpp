@@ -42,8 +42,3 @@ int test(){ // @suppress("Unused static function")
 	cout<<"partition-list passed.\n";
 	return 0;
 }
-
-
-
-
-

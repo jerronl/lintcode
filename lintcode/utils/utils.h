@@ -129,7 +129,7 @@ public:
     int val;
     TreeNode *left, *right;
     TreeNode() :val(INT_MIN),left(nullptr),right(nullptr){};
-    explicit TreeNode(int val) :val(val),left(nullptr),right(nullptr){};
+    TreeNode(int val) :val(val),left(nullptr),right(nullptr){};
     TreeNode(const initializer_list<int>& l):val(*l.begin()),left(nullptr),right(nullptr){
     	list<TreeNode**>Q{&left,&right};
     	for(auto i=l.begin();++i!=l.end();Q.pop_front())
@@ -140,6 +140,23 @@ public:
     			Q.push_back(&(*next)->right);
     	}
     };
+    bool isBST()const{
+    	if(left)
+    		if(left->val>val||!left->isBST())
+    			return false;
+    	if(right)
+    		if(right->val<val||!right->isBST())
+    			return false;
+    	return true;
+    }
+    TreeNode* find(int v){
+    	if(val==v)
+    		return this;
+    	if(v<val)
+    		return left?left->find(v):nullptr;
+    	else
+    		return right?right->find(v):nullptr;
+    }
     bool del(){
     	if(val==INT_MIN){
     		LOGGER("Probably trying to delete pointer already deleted!!!!!"<<endl);
