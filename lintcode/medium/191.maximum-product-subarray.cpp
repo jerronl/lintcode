@@ -1,10 +1,10 @@
 /*
- * 87.remove-node-in-binary-search-tree.cpp
+ * 191.maximum-product-subarray.cpp
  *
  *  Created on: Jul 11, 2019
  *      Author: jerron
- *      https://www.lintcode.com/problem/remove-node-in-binary-search-tree/description
- *      Given a root of Binary Search Tree with unique value for each node. Remove the node with given value.
+ *      https://www.lintcode.com/problem/maximum-product-subarray/description
+ *      Find the contiguous subarray within an array (containing at least one number) which has the largest product.
  */
 #define __DEBUG
 #include "../utils/utils.h"
@@ -66,7 +66,11 @@ int test(){ // @suppress("Unused static function")
 		r->del();
 		delete r;
 	}
-	cout<<"remove-node-in-binary-search-tree passed.\n";
+	cout<<"maximum-product-subarray passed.\n";
 	return 0;
 }
+
+
+
+
 
