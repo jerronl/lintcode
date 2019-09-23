@@ -4,7 +4,7 @@
  *  Created on: Jul 14, 2019
  *      Author: jerron
  *      https://www.lintcode.com/problem/binary-tree-level-order-traversal/description
- *      Given a binary tree, determine if it is height-balanced.
+ *      Given a binary tree, return the level order traversal of its nodes' values. (ie, from left to right, level by level).
  */
 #include "../utils/utils.h"
 
@@ -14,27 +14,27 @@ public:
      * @param root: A Tree
      * @return: Level order a list of lists of integer
      */
-
     vector<vector<int>> levelOrder(TreeNode * root) {
+        // write your code here
         vector<vector<int>> result;
         if(root){
-            vector<TreeNode*> Q;
-            Q.push_back(root);
-            while(!Q.empty()){
-                result.push_back(vector<int>());
-                for(int i=Q.size();i>0;i--){
-                    auto n=Q.front();
-                    result.back().push_back(n->val);
-                    if(n->left)Q.push_back(n->left);
-                    if(n->right)Q.push_back(n->right);
-                }
-            }
-        }
+        queue<TreeNode*> Q;
+        Q.push(root);
+        while(!Q.empty()){
+            result.push_back({});
+            for(auto count=Q.size();count>0;--count){
+                auto n=Q.front();
+                Q.pop();
+                result.back().push_back(n->val);
+                if(n->left)
+                    Q.push(n->left);
+                if(n->right)
+                    Q.push(n->right);
+        }}}
         return result;
     }
 };
-
-/*
+//*
 #pragma GCC diagnostic ignored "-Wunused-function"
 static//*/
 int test(){ // @suppress("Unused static function")

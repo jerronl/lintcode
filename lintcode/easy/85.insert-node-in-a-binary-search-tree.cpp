@@ -34,7 +34,7 @@ int test(){ // @suppress("Unused static function")
 		auto node=nodes[i]->val;
 		auto r=s.insertNode(tests[i],nodes[i]);
 		assert(r->find(node)->val==node);
-		assert(r->isBST());
+		assert(TreeNode::isBST(r));
 		r->del();
 		delete r;
 	}

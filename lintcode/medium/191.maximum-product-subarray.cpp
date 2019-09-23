@@ -62,7 +62,7 @@ int test(){ // @suppress("Unused static function")
 	for(auto i=0u;i<countof(tests);++i){
 		auto r=s.removeNode(tests[i],test2[i]);
 		assert(r->find(test2[i])==nullptr);
-		assert(r->isBST());
+		assert(TreeNode::isBST(r));
 		r->del();
 		delete r;
 	}

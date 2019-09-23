@@ -140,15 +140,11 @@ public:
     			Q.push_back(&(*next)->right);
     	}
     };
-    bool isBST()const{
-    	if(left)
-    		if(left->val>val||!left->isBST())
-    			return false;
-    	if(right)
-    		if(right->val<val||!right->isBST())
-    			return false;
-    	return true;
-    }
+    static bool isBST(TreeNode*root,long long lo=(long long)INT_MIN-1,long long hi=(long long)INT_MAX+1){
+        return !root||(root->val<hi&&root->val>lo&&
+        		isBST(root->right,max(lo,(long long)root->val),hi)&&
+				isBST(root->left,lo,min(hi,(long long)root->val)));
+    };
     TreeNode* find(int v){
     	if(val==v)
     		return this;
