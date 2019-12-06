@@ -1,4 +1,4 @@
-#if 1
+#if 0
 /*
  * 1.two sum.cpp
  *
