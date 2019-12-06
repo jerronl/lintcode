@@ -39,3 +39,4 @@
 *.tree
 .safetable/
 /.metadata/
+/src/Debug/
