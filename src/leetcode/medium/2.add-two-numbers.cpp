@@ -4,7 +4,7 @@
  *  Created on: Dec 6, 2019
  *      Author: jerron
  *      https://leetcode.com/problems/add-two-numbers/
- *      Given a binary tree, find its maximum depth.
+ *     You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.
  */
 #if 0
 #include "../../utils/utils.h"

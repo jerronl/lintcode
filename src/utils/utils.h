@@ -9,24 +9,25 @@
 #define UTIL_H_
 
 
-#include <vector>
-#include <iostream>
-#include <vector>
-#include <string>
-#include <functional>
+#include <algorithm>			//std::find,
+#include <cassert>				//assert
+#include <deque>				//std::deque
+#include <functional>			//std::function
+#include <initializer_list>		//std::initializer_list
+#include <iostream>				//std::cout
+#include <iterator>				// std::distance
+#include <list>
 #include <map>
+#include <math.h>
+#include <queue>
+#include <set>
+#include <sstream>
+#include <stdlib.h>
+#include <string>
 #include <unordered_map>
 #include <unordered_set>
-#include <deque>
-#include <algorithm>
-#include <set>
-#include <list>
-#include <queue>
-#include <sstream>
-#include <math.h>
-#include <stdlib.h>
-#include <cassert>
-#include <initializer_list>
+#include <vector>
+
 
 using namespace std;
 

@@ -1,11 +1,11 @@
 #if 0
 /*
- * 1.two sum.cpp
+ *
  *
  *  Created on: Dec 6, 2019
  *      Author: jerron
- *      https://leetcode.com/problems/two-sum/
- *      Given a binary tree, find its maximum depth.
+ *      https://leetcode.com/problems/add-two-numbers/
+ *      given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.
  */
 #include "../../utils/utils.h"
 

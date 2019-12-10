@@ -4,26 +4,24 @@
  *  Created on: Dec 6, 2019
  *      Author: jerron
  *      https://leetcode.com/problems/longest-substring-without-repeating-characters/
- *      Given a binary tree, find its maximum depth.
+ *     Given a string, find the length of the longest substring without repeating characters.
  */
-#if 1
+#if 0
 #include "../../utils/utils.h"
 
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
-        unordered_map<char,unsigned>M;
-        unsigned longest=0,length=0;
-        for(unsigned i=0;i<s.length();++i){
-        	if(M.count(s[i])){
-        		longest=max(longest,length);
-        		length=min(i-M[s[i]],length+1);
+        vector<int>M(256,-1);
+        int longest=0,start=0;
+        for(int i=0;i<s.length();++i){
+        	if(start<=M[s[i]]){
+        		longest=max(longest,i-start);
+        		start=M[s[i]]+1;
         	}
-        	else
-        		++length;
         	M[s[i]]=i;
         }
-        return max(length,longest);
+        return max((int)s.length()-start,longest);
     }
 };
 
