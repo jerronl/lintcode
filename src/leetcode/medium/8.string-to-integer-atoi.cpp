@@ -6,7 +6,7 @@
  *      https://leetcode.com/problems/string-to-integer-atoi/
  *      Implement atoi which converts a string to an integer.
  */
-#if 1
+#if 0
 #include "../../utils/utils.h"
 
 class Solution {
