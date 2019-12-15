@@ -7,25 +7,29 @@
  *      https://leetcode.com/problems/merge-k-sorted-lists/
  *      Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.
  */
-#if 1
+#if 0
 #include "../../utils/utils.h"
 
 class Solution {
 public:
     ListNode* mergeKLists(vector<ListNode*>& lists) {
+    	std::remove_reference< decltype(lists)>::type q;
+    	for(auto p:lists)
+    		if(p)
+    			q.push_back(p);
         auto list_comp=[](ListNode*l1,ListNode* l2){
         	return l1->val>l2->val;
         };
-    	priority_queue<ListNode*,vector<ListNode*>,decltype(list_comp)> q(list_comp);
+        make_heap(q.begin(),q.end(),list_comp);
     	ListNode* res=nullptr,**next=&res;
-    	for(auto p:lists)
-    		if(p)
-    			q.push(p);
     	while(!q.empty()){
-    		auto p=q.top();
-    		q.pop();
-    		if(p->next)
-    			q.push(p->next);
+    		auto p=q.front();
+    		pop_heap(q.begin(),q.end(),list_comp);
+    		q.pop_back();
+    		if(p->next){
+    			q.push_back(p->next);
+    			push_heap(q.begin(),q.end(),list_comp);
+    		}
     		*next=p;
     		p->next=nullptr;
     		next=&p->next;
@@ -44,11 +48,3 @@ int test(){
 
 
 #endif
-
-
-
-
-
-
-
-
