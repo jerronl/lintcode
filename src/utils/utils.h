@@ -39,7 +39,7 @@ using namespace std;
 #endif
 
 template <typename T, std::size_t N>
-constexpr std::size_t countof(T const (&)[N]) noexcept{
+constexpr std::size_t countof(const T (&)[N]) noexcept {
 	return N;
 }
 
@@ -200,6 +200,12 @@ void assertv(const vector<T>&v1,const vector<T>&v2){
 	assert(v1.size()==v2.size());
 	for(auto i1=v1.begin(),i2=v2.begin();i1!=v1.end();++i1,++i2)
 		assert(*i1==*i2);
+}
+template<class T>
+void asserteqv(const vector<T>&v1, const vector<T>&v2) {
+	assert(v1.size() == v2.size());
+	for (auto v : v1)
+		assert(find(v2.begin(), v2.end(), v) != v2.end());
 }
 template<class T>
 void del(vector<T*>v){

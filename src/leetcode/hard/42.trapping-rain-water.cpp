@@ -5,9 +5,9 @@
  *      Author: jerron
 
  *      https://leetcode.com/problems/trapping-rain-water/
- *      Given an unsorted integer array, find the smallest missing positive integer.
+ *      Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it is able to trap after raining.
  */
-#if 1
+#if 0
 #include "../../utils/utils.h"
 
 class Solution {
@@ -19,7 +19,6 @@ public:
 			high = max(high, height[low]);
 			res += high - height[low];
 		}
-
 		return res;
 	}
 };
@@ -28,7 +27,7 @@ int test() {
 	Solution s;
 	assert(s.trap( { }) == 0);
 	assert(s.trap( { 0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1 }) == 6);
-	cout << "trapping-rain-water/ passed.\n";
+	cout << "trapping-rain-water passed.\n";
 	return 0;
 }
 
