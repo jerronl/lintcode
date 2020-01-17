@@ -16,8 +16,7 @@ public:
      */
     bool isBalanced(TreeNode * root) {
         // write your code here
-        function<int(TreeNode*)>dfs;
-        dfs=[&dfs](TreeNode* root)->int{
+		function<int(TreeNode*)> dfs = [&dfs](TreeNode* root)->int {
             if(root){
                 int depthl=dfs(root->left),depth2;
                 if(depthl<0||(depth2=dfs(root->right))<0||

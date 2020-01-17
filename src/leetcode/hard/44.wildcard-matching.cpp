@@ -7,7 +7,7 @@
  *      https://leetcode.com/problems/wildcard-matching/
  *      Given an input string (s) and a pattern (p), implement wildcard pattern matching with support for '?' and '*'.
  */
-#if 1
+#if 0
 #include "../../utils/utils.h"
 
 class Solution {
